@@ -119,6 +119,7 @@ facility_coordinates = {
     "InnovateTech Labs, Colorado": (39.7392, -104.9903),
     "SimulCorp, Washington": (47.6062, -122.3321),
     "Applied Technologies": (37.7749, -122.4194),
+    "MicroTech Processing, Washington, D.C.": (38.9072, -77.0369),
     # Add more source facilities and coordinates as needed
 }
 
@@ -209,31 +210,19 @@ def simulate_manufacturing(
     try:
         # Simulate manufacturing new products with stages
         new_products = [
-            {
-                "id": "WAFER001",
-                "name": "Silicon Wafer",
-                "stage": "Manufacturing"
-            },
+            {"id": "WAFER001", "name": "Silicon Wafer", "stage": "Manufacturing"},
             {
                 "id": "CHIP001",
                 "name": "Integrated Circuit Chip",
                 "stage": "Chip Design",
             },
-            {
-                "id": "IP001",
-                "name": "Intellectual Property",
-                "stage": "IP & EDA"
-            },
+            {"id": "IP001", "name": "Intellectual Property", "stage": "IP & EDA"},
             {
                 "id": "RESEARCH001",
                 "name": "Research Prototype",
                 "stage": "Research & Development",
             },
-            {
-                "id": "SENSOR001",
-                "name": "Sensor Module",
-                "stage": "Sensor Integration"
-            },
+            {"id": "SENSOR001", "name": "Sensor Module", "stage": "Sensor Integration"},
             {
                 "id": "MATERIAL001",
                 "name": "Advanced Material",
@@ -249,7 +238,6 @@ def simulate_manufacturing(
                 "name": "Simulation Software",
                 "stage": "Simulation Development",
             },
-            # Add more products with different stages as needed
         ]
 
         for product in new_products:
@@ -299,6 +287,8 @@ def generate_supply_chain_map(fac_coords, status_var):
             "Global Materials Innovation, Arizona": "yellow",
             "InnovateTech Labs, Colorado": "darkgreen",
             "SimulCorp, Washington": "gray",
+            "Applied Technologies": "darkpurple",
+            "MicroTech Processing, Washington, D.C.": "darkred",
             # Add more facilities and colors as needed
         }
 
@@ -308,7 +298,7 @@ def generate_supply_chain_map(fac_coords, status_var):
             folium.Marker(
                 location=coords,
                 popup=facility,
-                icon=folium.Icon(color=facility_colors.get(facility, "darkblue")),
+                icon=folium.Icon(color=facility_colors.get(facility, "blue")),
             ).add_to(marker_cluster)
 
         # Coordinates for each location
