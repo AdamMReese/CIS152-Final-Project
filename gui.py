@@ -1,20 +1,21 @@
-"""""" """""" """""" """""" """""" """""" """""" """""" """""" """""" """
-" Name : Program Name
+""" """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """
+" Name : GUI for Semiconductor Supply Chain Management
 " Author: Adam Reese
-" Created : " Course: CIS 152 - Data Structure
+" Created : 11/16/2023
+" Course: CIS 152 - Data Structure
 " Version: 1.0
 " OS: Windows 11
-" IDE: PyCharm 2023.2 (Professional Edition)
+" IDE: PyCharm 2023.5 (Professional Edition)
 " Copyright : This is my own original work 
 " based on specifications issued by our instructor
-" Description : An app that .... ADD HERE....
-"            Input: ADD HERE XXX
-"            Output: ADD HERE XXX
+" Description : GUI implementation for the Semiconductor Supply Chain Management app.
+"            Input: User interactions with the graphical interface.
+"            Output: Display of the supply chain simulation and status updates.
 " Academic Honesty: I attest that this is my original work.
 " I have not used unauthorized source code, either modified or
 " unmodified. I have not given other fellow student(s) access
 " to my program.
-""" """""" """""" """""" """""" """""" """""" """""" """""" """""" """"""
+""" """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """
 
 import tkinter as tk
 from tkinter import messagebox
@@ -57,7 +58,7 @@ def open_instructions_window():
     close_button.pack(pady=10)
 
 
-# Define the clear_inventory function
+# Function to clear the inventory and update the listbox and status
 def clear_inventory(
     products_listbox, status_var, clear_inventory_button, distribute_button
 ):
@@ -70,6 +71,7 @@ def clear_inventory(
         clear_inventory_button.config(state=tk.DISABLED)
         distribute_button.config(state=tk.DISABLED)
 
+    # Catch any exceptions and display an error message
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
         status_var.set("Error clearing inventory!")
@@ -82,7 +84,7 @@ def init_gui():
         main_window = tk.Tk()
         main_window.title("Semiconductor Supply Chain Management")
 
-        # Set up the layout
+        # Set up the layout of the window
         main_window.geometry("")  # No specific size, let it adjust based on contents
 
         # Center the window on the screen
@@ -166,7 +168,7 @@ def init_gui():
             row=9, column=0, columnspan=4, pady=(0, 10), sticky="n"
         )
 
-        # Add an exit button
+        # Button to exit the application
         exit_button = tk.Button(main_window, text="Exit", command=main_window.destroy)
         exit_button.grid(row=11, column=0, columnspan=4, pady=10, sticky="s")
 
@@ -179,13 +181,13 @@ def init_gui():
         )
         instructions_button.grid(row=11, column=3, padx=20, pady=(0, 20), sticky="se")
 
-        # Configure row and column weights to center the widgets
+        # Row and column weights to center the widgets
         for i in range(12):
             main_window.grid_rowconfigure(i, weight=1)
         for i in range(4):
             main_window.grid_columnconfigure(i, weight=1)
 
-        # Return products_listbox, status_var, simulate_distribution_button, and clear_inventory_button
+        # Return the widgets that need to be accessed in main.py
         return (
             main_window,
             products_listbox,
@@ -193,6 +195,7 @@ def init_gui():
             simulate_distribution_button,
             clear_inventory_button,
         )
+    # Catch any exceptions and display an error message
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
         return None, None

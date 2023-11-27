@@ -1,3 +1,22 @@
+""" """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """
+" Name : Supply and Distribution Module
+" Author: Adam Reese
+" Created : 11/16/2023
+" Course: CIS 152 - Data Structure
+" Version: 1.0
+" OS: Windows 11
+" IDE: PyCharm 2023.5 (Professional Edition)
+" Copyright : This is my own original work 
+" based on specifications issued by our instructor
+" Description : Module handling the supply and distribution simulation.
+"            Input: Data from the supply network and user interactions.
+"            Output: Simulation results and updates to the GUI.
+" Academic Honesty: I attest that this is my original work.
+" I have not used unauthorized source code, either modified or
+" unmodified. I have not given other fellow student(s) access
+" to my program.
+""" """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """ """
+
 import tkinter as tk
 import webbrowser
 from tkinter import messagebox
@@ -93,9 +112,13 @@ facility_coordinates = {
     "NUVIA Inc, California": (37.3886, -121.9803),
     "Arm Ltd, Texas": (30.2436, -97.8460),
     "Albany NanoTech Complex, New York": (42.6909, -73.8334),
-    "TechDistributors": (40.7128, -74.0060),
-    "GlobalComponents": (34.0522, -118.2437),
-    "InnovateTech": (39.7392, -104.9903),
+    "TechDistributors, New Jersey": (40.7128, -74.0060),
+    "GlobalComponents, California": (34.0522, -118.2437),
+    "TechHub Semiconductors, Nevada": (36.1716, -115.1391),
+    "Global Materials Innovation, Arizona": (33.4484, -112.0740),
+    "InnovateTech Labs, Colorado": (39.7392, -104.9903),
+    "SimulCorp, Washington": (47.6062, -122.3321),
+    "Applied Technologies": (37.7749, -122.4194),
     # Add more source facilities and coordinates as needed
 }
 
@@ -162,7 +185,6 @@ def simulate_distribution(
 
         # Call the function without passing num_spokes to status_var.set
         generate_supply_chain_map(
-            supply_network,
             facility_coordinates,
             status_var=status_var,
         )
@@ -187,19 +209,31 @@ def simulate_manufacturing(
     try:
         # Simulate manufacturing new products with stages
         new_products = [
-            {"id": "WAFER001", "name": "Silicon Wafer", "stage": "Manufacturing"},
+            {
+                "id": "WAFER001",
+                "name": "Silicon Wafer",
+                "stage": "Manufacturing"
+            },
             {
                 "id": "CHIP001",
                 "name": "Integrated Circuit Chip",
                 "stage": "Chip Design",
             },
-            {"id": "IP001", "name": "Intellectual Property", "stage": "IP & EDA"},
+            {
+                "id": "IP001",
+                "name": "Intellectual Property",
+                "stage": "IP & EDA"
+            },
             {
                 "id": "RESEARCH001",
                 "name": "Research Prototype",
                 "stage": "Research & Development",
             },
-            {"id": "SENSOR001", "name": "Sensor Module", "stage": "Sensor Integration"},
+            {
+                "id": "SENSOR001",
+                "name": "Sensor Module",
+                "stage": "Sensor Integration"
+            },
             {
                 "id": "MATERIAL001",
                 "name": "Advanced Material",
@@ -248,8 +282,8 @@ def simulate_manufacturing(
         status_var.set("Error simulating manufacturing!")
 
 
-# Define the visualize_distribution_on_map function
-def generate_supply_chain_map(network, fac_coords, status_var):
+# Generate a supply chain map using Folium and save it as an HTML file in the current directory
+def generate_supply_chain_map(fac_coords, status_var):
     try:
         m = folium.Map(location=[39.8283, -98.5795], zoom_start=4)
 
@@ -261,7 +295,10 @@ def generate_supply_chain_map(network, fac_coords, status_var):
             "Albany NanoTech Complex, New York": "red",
             "TechDistributors": "purple",
             "GlobalComponents": "cadetblue",
-            "InnovateTech": "pink",
+            "TechHub Semiconductors, Nevada": "brown",
+            "Global Materials Innovation, Arizona": "yellow",
+            "InnovateTech Labs, Colorado": "darkgreen",
+            "SimulCorp, Washington": "gray",
             # Add more facilities and colors as needed
         }
 
@@ -271,39 +308,8 @@ def generate_supply_chain_map(network, fac_coords, status_var):
             folium.Marker(
                 location=coords,
                 popup=facility,
-                icon=folium.Icon(color=facility_colors.get(facility, "blue")),
+                icon=folium.Icon(color=facility_colors.get(facility, "darkblue")),
             ).add_to(marker_cluster)
-
-        # Draw spokes from each distribution center to corresponding facilities
-        for supplier in network.get_all_suppliers():
-            source_coords = fac_coords.get(supplier)
-            if source_coords:
-                products = network.get_supplier_products(supplier)
-                for product in products:
-                    if "source" in product:
-                        destination = get_destination_facility(product["stage"])
-                        dest_coords = fac_coords.get(destination)
-                        if dest_coords:
-                            # Generate intermediary points (spokes)
-                            spokes = generate_spokes(
-                                source_coords,
-                                dest_coords,
-                                5,
-                            )
-
-                            # Draw PolyLine from distribution center to facility with arrows and tooltip
-                            product_name = product.get("name", "Unknown Product")
-                            tooltip_content = (
-                                f"Product: {product_name}<br>Stage: {product['stage']}"
-                            )
-                            AntPath(
-                                locations=[source_coords] + spokes + [dest_coords],
-                                color="gray",
-                                weight=2.5,
-                                opacity=1,
-                                tooltip=Tooltip(tooltip_content, sticky=True),
-                                icons="arrow",
-                            ).add_to(m)
 
         # Coordinates for each location
         coordinates = {
@@ -311,21 +317,14 @@ def generate_supply_chain_map(network, fac_coords, status_var):
             "Integrated Circuit Chip": [(37.3886, -121.9803), (40.7128, -74.0060)],
             "Intellectual Property": [(30.2436, -97.8460), (40.7128, -74.0060)],
             "Research Prototype": [(42.6909, -73.8334), (37.7749, -122.4194)],
-            "Sensor Module": [(36.1716, -115.1391), (40.7128, -74.0060)],
+            "Sensor Module": [(36.1716, -115.1391), (33.4484, -112.0740)],
             "Advanced Material": [(34.0522, -118.2437), (34.0522, -118.2437)],
             "Microcontroller Chip": [(39.7392, -104.9903), (34.0522, -118.2437)],
-            "Simulation Software": [(38.9072, -77.0369), (37.7749, -122.4194)],
+            "Simulation Software": [(38.9072, -77.0369), (47.6062, -122.3321)],
         }
 
-        # Add markers for each location
+        # Add Multi-Polylines for each source-destination pair
         for key, value in coordinates.items():
-            folium.Marker(
-                location=value[0],
-                popup=key,
-                icon=folium.Icon(color="blue"),
-            ).add_to(m)
-
-            # Add Multi-Polylines for each source-destination pair
             tooltip_content = f"Product: {key}"
             AntPath(
                 locations=value,
@@ -337,8 +336,8 @@ def generate_supply_chain_map(network, fac_coords, status_var):
             ).add_to(m)
 
         # Save the map as an HTML file
-        m.save("multi_polylines_map.html")
-        webbrowser.open("multi_polylines_map.html")
+        m.save("animated_multi_polylines_map.html")
+        webbrowser.open("animated_multi_polylines_map.html")
 
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {str(e)}")
@@ -355,7 +354,7 @@ def generate_spokes(start_coords, end_coords, number_spokes):
         tuple(start_point + (i / (number_spokes + 1)) * (end_point - start_point))
         for i in range(1, number_spokes + 1)
     ]
-
+    # Return the list of spokes
     return spokes
 
 
@@ -363,6 +362,7 @@ def generate_spokes(start_coords, end_coords, number_spokes):
 def generate_coordinates_for_spokes(network, fac_coordinates, number_of_spokes):
     coordinates = []
 
+    # Iterate over suppliers in the network
     for supplier in network.get_all_suppliers():
         source_coords = fac_coordinates.get(supplier)
         if source_coords:
@@ -376,7 +376,7 @@ def generate_coordinates_for_spokes(network, fac_coordinates, number_of_spokes):
                             source_coords, dest_coords, number_of_spokes
                         )
                         coordinates.extend(spokes)
-
+    # Return the list of coordinates
     return coordinates
 
 
@@ -392,12 +392,11 @@ def embed_map_in_gui(html_path):
     # Load the Folium map HTML file into the WebView
     webview.load_url("file://" + html_path)
 
+    # Start the main loop
     root.mainloop()
 
 
 if __name__ == "__main__":
-    # Add your code to simulate manufacturing and distribution
-
     # Example coordinates for demonstration
     facility_coords = {
         "Siltronic Corporation, Oregon": (45.57614, -122.7502),

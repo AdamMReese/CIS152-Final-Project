@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5e29bdec45f66f6dfcefb5d8f6639d8f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-ant-path@1.1.2/dist/leaflet-ant-path.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5e29bdec45f66f6dfcefb5d8f6639d8f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5e29bdec45f66f6dfcefb5d8f6639d8f = L.map(
+                "map_5e29bdec45f66f6dfcefb5d8f6639d8f",
+                {
+                    center: [39.8283, -98.5795],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d1afd42fdad416e38d9a251572a81ac0 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+                tile_layer_d1afd42fdad416e38d9a251572a81ac0.addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+    
+            var marker_cluster_0797321eb44af6ec1be2c2aea92079ec = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_2f463cc77506954edde526d3cfb2d744 = L.marker(
+                [45.57614, -122.7502],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_8e1d7a31717504a01b21ea6efb78d4a2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2f463cc77506954edde526d3cfb2d744.setIcon(icon_8e1d7a31717504a01b21ea6efb78d4a2);
+        
+    
+        var popup_abe36bce3bb660f6ea2cc5655864a735 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f09d9884f126d77f08b000e3325f6d3 = $(`<div id="html_4f09d9884f126d77f08b000e3325f6d3" style="width: 100.0%; height: 100.0%;">Siltronic Corporation, Oregon</div>`)[0];
+                popup_abe36bce3bb660f6ea2cc5655864a735.setContent(html_4f09d9884f126d77f08b000e3325f6d3);
+            
+        
+
+        marker_2f463cc77506954edde526d3cfb2d744.bindPopup(popup_abe36bce3bb660f6ea2cc5655864a735)
+        ;
+
+        
+    
+    
+            var marker_fc5c9feb94b8499d1cadeb7d2db9c683 = L.marker(
+                [37.3886, -121.9803],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_754d58ab22640e6e9b8de0fe5b49050c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_fc5c9feb94b8499d1cadeb7d2db9c683.setIcon(icon_754d58ab22640e6e9b8de0fe5b49050c);
+        
+    
+        var popup_c3bdc09d5bb4e87d96231ec53bcbb701 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d9f0c78ad6b37d2374d406243706e6e3 = $(`<div id="html_d9f0c78ad6b37d2374d406243706e6e3" style="width: 100.0%; height: 100.0%;">NUVIA Inc, California</div>`)[0];
+                popup_c3bdc09d5bb4e87d96231ec53bcbb701.setContent(html_d9f0c78ad6b37d2374d406243706e6e3);
+            
+        
+
+        marker_fc5c9feb94b8499d1cadeb7d2db9c683.bindPopup(popup_c3bdc09d5bb4e87d96231ec53bcbb701)
+        ;
+
+        
+    
+    
+            var marker_dd4c18679cbb0d97dfbd3c877d772339 = L.marker(
+                [30.2436, -97.846],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_27c45314e254926f6a4007e7a3f48682 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightblue", "prefix": "glyphicon"}
+            );
+            marker_dd4c18679cbb0d97dfbd3c877d772339.setIcon(icon_27c45314e254926f6a4007e7a3f48682);
+        
+    
+        var popup_739f9f70b75ac64cd7c6aba636b36e5d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_01b27d26db4030d2b581b90cea7e923f = $(`<div id="html_01b27d26db4030d2b581b90cea7e923f" style="width: 100.0%; height: 100.0%;">Arm Ltd, Texas</div>`)[0];
+                popup_739f9f70b75ac64cd7c6aba636b36e5d.setContent(html_01b27d26db4030d2b581b90cea7e923f);
+            
+        
+
+        marker_dd4c18679cbb0d97dfbd3c877d772339.bindPopup(popup_739f9f70b75ac64cd7c6aba636b36e5d)
+        ;
+
+        
+    
+    
+            var marker_f2d867b367360b4b27e4bb743bda07d3 = L.marker(
+                [42.6909, -73.8334],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_aa0a5fecbfbb978fc89a2d72c7dd6470 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_f2d867b367360b4b27e4bb743bda07d3.setIcon(icon_aa0a5fecbfbb978fc89a2d72c7dd6470);
+        
+    
+        var popup_4a281e4a5747fa81851747f2b300b8b4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_958c1b473952bf9a8996ecf7845b5a43 = $(`<div id="html_958c1b473952bf9a8996ecf7845b5a43" style="width: 100.0%; height: 100.0%;">Albany NanoTech Complex, New York</div>`)[0];
+                popup_4a281e4a5747fa81851747f2b300b8b4.setContent(html_958c1b473952bf9a8996ecf7845b5a43);
+            
+        
+
+        marker_f2d867b367360b4b27e4bb743bda07d3.bindPopup(popup_4a281e4a5747fa81851747f2b300b8b4)
+        ;
+
+        
+    
+    
+            var marker_ab8b1780d163fda68661de0f2686f8fa = L.marker(
+                [40.7128, -74.006],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_d21825cc822cb24fc9b9afe8464e8832 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_ab8b1780d163fda68661de0f2686f8fa.setIcon(icon_d21825cc822cb24fc9b9afe8464e8832);
+        
+    
+        var popup_ba646c323e6608a9eab0a4757ae18518 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_458e663fbbd9f84f45900aa4cfa167f6 = $(`<div id="html_458e663fbbd9f84f45900aa4cfa167f6" style="width: 100.0%; height: 100.0%;">TechDistributors, New Jersey</div>`)[0];
+                popup_ba646c323e6608a9eab0a4757ae18518.setContent(html_458e663fbbd9f84f45900aa4cfa167f6);
+            
+        
+
+        marker_ab8b1780d163fda68661de0f2686f8fa.bindPopup(popup_ba646c323e6608a9eab0a4757ae18518)
+        ;
+
+        
+    
+    
+            var marker_5d8877808164b809913ad674a1ebc700 = L.marker(
+                [34.0522, -118.2437],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_449de76ff61bad437e6368d577152792 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_5d8877808164b809913ad674a1ebc700.setIcon(icon_449de76ff61bad437e6368d577152792);
+        
+    
+        var popup_61590b5ce436cee3a149bc9508723f29 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_da5ac0c678a3f66e8539bd79f8ef087d = $(`<div id="html_da5ac0c678a3f66e8539bd79f8ef087d" style="width: 100.0%; height: 100.0%;">GlobalComponents, California</div>`)[0];
+                popup_61590b5ce436cee3a149bc9508723f29.setContent(html_da5ac0c678a3f66e8539bd79f8ef087d);
+            
+        
+
+        marker_5d8877808164b809913ad674a1ebc700.bindPopup(popup_61590b5ce436cee3a149bc9508723f29)
+        ;
+
+        
+    
+    
+            var marker_fb2e4af7811a51f5a1876a717af7919d = L.marker(
+                [36.1716, -115.1391],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_8337c82de7f4f98f7ae319b656729028 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "brown", "prefix": "glyphicon"}
+            );
+            marker_fb2e4af7811a51f5a1876a717af7919d.setIcon(icon_8337c82de7f4f98f7ae319b656729028);
+        
+    
+        var popup_0ba15314a1e5bd80640f8d5e82c6e868 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2e72adbccc50238804752e8f23d4d61d = $(`<div id="html_2e72adbccc50238804752e8f23d4d61d" style="width: 100.0%; height: 100.0%;">TechHub Semiconductors, Nevada</div>`)[0];
+                popup_0ba15314a1e5bd80640f8d5e82c6e868.setContent(html_2e72adbccc50238804752e8f23d4d61d);
+            
+        
+
+        marker_fb2e4af7811a51f5a1876a717af7919d.bindPopup(popup_0ba15314a1e5bd80640f8d5e82c6e868)
+        ;
+
+        
+    
+    
+            var marker_2827031d227b0ce9d9b4bf7473d049a4 = L.marker(
+                [33.4484, -112.074],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_96a479f24ace69bdaee64039f4606f94 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "yellow", "prefix": "glyphicon"}
+            );
+            marker_2827031d227b0ce9d9b4bf7473d049a4.setIcon(icon_96a479f24ace69bdaee64039f4606f94);
+        
+    
+        var popup_1bbf40bb90e2086dd467408334220e2f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_37bb4b118e88bf5334ebe2d180b8cd4a = $(`<div id="html_37bb4b118e88bf5334ebe2d180b8cd4a" style="width: 100.0%; height: 100.0%;">Global Materials Innovation, Arizona</div>`)[0];
+                popup_1bbf40bb90e2086dd467408334220e2f.setContent(html_37bb4b118e88bf5334ebe2d180b8cd4a);
+            
+        
+
+        marker_2827031d227b0ce9d9b4bf7473d049a4.bindPopup(popup_1bbf40bb90e2086dd467408334220e2f)
+        ;
+
+        
+    
+    
+            var marker_d20124ea0270ea510dadbb34929e9c48 = L.marker(
+                [39.7392, -104.9903],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_0719441eabbb87f12411e42c039efbef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_d20124ea0270ea510dadbb34929e9c48.setIcon(icon_0719441eabbb87f12411e42c039efbef);
+        
+    
+        var popup_81355bf2c789ac99999ca820f26ca6d2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d95bb850d564c75dc9d6f333b2a4dc5f = $(`<div id="html_d95bb850d564c75dc9d6f333b2a4dc5f" style="width: 100.0%; height: 100.0%;">InnovateTech Labs, Colorado</div>`)[0];
+                popup_81355bf2c789ac99999ca820f26ca6d2.setContent(html_d95bb850d564c75dc9d6f333b2a4dc5f);
+            
+        
+
+        marker_d20124ea0270ea510dadbb34929e9c48.bindPopup(popup_81355bf2c789ac99999ca820f26ca6d2)
+        ;
+
+        
+    
+    
+            var marker_34e2c61f5bbef03010c42bad6510672a = L.marker(
+                [47.6062, -122.3321],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_0c255373a69cba21e036285dca056bc1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_34e2c61f5bbef03010c42bad6510672a.setIcon(icon_0c255373a69cba21e036285dca056bc1);
+        
+    
+        var popup_471190eb9daaeadf9165d5d0d15ff5d4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9305415daee09ed91ee936e0a06b8442 = $(`<div id="html_9305415daee09ed91ee936e0a06b8442" style="width: 100.0%; height: 100.0%;">SimulCorp, Washington</div>`)[0];
+                popup_471190eb9daaeadf9165d5d0d15ff5d4.setContent(html_9305415daee09ed91ee936e0a06b8442);
+            
+        
+
+        marker_34e2c61f5bbef03010c42bad6510672a.bindPopup(popup_471190eb9daaeadf9165d5d0d15ff5d4)
+        ;
+
+        
+    
+    
+            var marker_5407ba09ffe37c6c1f9a3de67a34c351 = L.marker(
+                [37.7749, -122.4194],
+                {}
+            ).addTo(marker_cluster_0797321eb44af6ec1be2c2aea92079ec);
+        
+    
+            var icon_3132a846240711fd9280c52d0b98926b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_5407ba09ffe37c6c1f9a3de67a34c351.setIcon(icon_3132a846240711fd9280c52d0b98926b);
+        
+    
+        var popup_91eb566b829a9652e354f9d7bb303ac0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_719eeb7d2bc6f929e7b4d066f5af405f = $(`<div id="html_719eeb7d2bc6f929e7b4d066f5af405f" style="width: 100.0%; height: 100.0%;">Applied Technologies</div>`)[0];
+                popup_91eb566b829a9652e354f9d7bb303ac0.setContent(html_719eeb7d2bc6f929e7b4d066f5af405f);
+            
+        
+
+        marker_5407ba09ffe37c6c1f9a3de67a34c351.bindPopup(popup_91eb566b829a9652e354f9d7bb303ac0)
+        ;
+
+        
+    
+    
+                marker_cluster_0797321eb44af6ec1be2c2aea92079ec.addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+    
+            ant_path_ec5d5842423e4577bc013752684a3243 = L.polyline.antPath(
+              [[45.57614, -122.7502], [40.7128, -74.006]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_ec5d5842423e4577bc013752684a3243.bindTooltip(
+                `<div>
+                     Product: Silicon Wafer
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_ca904263d42ee5c3033df7f0bf14e022 = L.polyline.antPath(
+              [[37.3886, -121.9803], [40.7128, -74.006]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_ca904263d42ee5c3033df7f0bf14e022.bindTooltip(
+                `<div>
+                     Product: Integrated Circuit Chip
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_c391b9ec1f23d4683eae009c79d580f0 = L.polyline.antPath(
+              [[30.2436, -97.846], [40.7128, -74.006]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_c391b9ec1f23d4683eae009c79d580f0.bindTooltip(
+                `<div>
+                     Product: Intellectual Property
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_d66941dd33bcc6c27680bfed4ca0560a = L.polyline.antPath(
+              [[42.6909, -73.8334], [37.7749, -122.4194]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_d66941dd33bcc6c27680bfed4ca0560a.bindTooltip(
+                `<div>
+                     Product: Research Prototype
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_7a1266e3aadab034fa3f8e57db282cfb = L.polyline.antPath(
+              [[36.1716, -115.1391], [33.4484, -112.074]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_7a1266e3aadab034fa3f8e57db282cfb.bindTooltip(
+                `<div>
+                     Product: Sensor Module
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_cc2ec9642e5a701fd85fb8b8ae493b6c = L.polyline.antPath(
+              [[34.0522, -118.2437], [34.0522, -118.2437]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_cc2ec9642e5a701fd85fb8b8ae493b6c.bindTooltip(
+                `<div>
+                     Product: Advanced Material
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_c0de550ad7b6fcf42edae17109721540 = L.polyline.antPath(
+              [[39.7392, -104.9903], [34.0522, -118.2437]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_c0de550ad7b6fcf42edae17109721540.bindTooltip(
+                `<div>
+                     Product: Microcontroller Chip
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            ant_path_0b8aec1102ed2ae9eed8b2190bb27b35 = L.polyline.antPath(
+              [[38.9072, -77.0369], [47.6062, -122.3321]],
+              {"bubblingMouseEvents": true, "color": "blue", "dashArray": [10, 20], "dashOffset": null, "delay": 400, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "hardwareAcceleration": false, "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "paused": false, "pulseColor": "#FFFFFF", "reverse": false, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+        ).addTo(map_5e29bdec45f66f6dfcefb5d8f6639d8f);
+        
+    
+            ant_path_0b8aec1102ed2ae9eed8b2190bb27b35.bindTooltip(
+                `<div>
+                     Product: Simulation Software
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
